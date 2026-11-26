@@ -1,0 +1,222 @@
+{
+  "F01": {
+    "id": "F01",
+    "type": "faculty",
+    "name": "James Jensen",
+    "department": "Computer Science",
+    "title": "Assistant Professor",
+    "office": "Building E-335",
+    "email": "jensen@university.edu"
+  },
+  "F02": {
+    "id": "F02",
+    "type": "faculty",
+    "name": "Irene Celik",
+    "department": "Mathematics",
+    "title": "Assistant Professor",
+    "office": "Building E-157",
+    "email": "celik@university.edu"
+  },
+  "F03": {
+    "id": "F03",
+    "type": "faculty",
+    "name": "David Hughes",
+    "department": "Mathematics",
+    "title": "Associate Professor",
+    "office": "Building B-185",
+    "email": "hughes@university.edu"
+  },
+  "F04": {
+    "id": "F04",
+    "type": "faculty",
+    "name": "Alice Ivanova",
+    "department": "Physics",
+    "title": "Professor",
+    "office": "Building A-378",
+    "email": "ivanova@university.edu"
+  },
+  "F05": {
+    "id": "F05",
+    "type": "faculty",
+    "name": "Oscar Kaya",
+    "department": "Physics",
+    "title": "Professor",
+    "office": "Building E-197",
+    "email": "kaya@university.edu"
+  },
+  "F06": {
+    "id": "F06",
+    "type": "faculty",
+    "name": "Grace Anderson",
+    "department": "Physics",
+    "title": "Assistant Professor",
+    "office": "Building D-106",
+    "email": "anderson@university.edu"
+  },
+  "F07": {
+    "id": "F07",
+    "type": "faculty",
+    "name": "Carla Moreau",
+    "department": "Biology",
+    "title": "Professor",
+    "office": "Building C-300",
+    "email": "moreau@university.edu"
+  },
+  "F08": {
+    "id": "F08",
+    "type": "faculty",
+    "name": "Hakan Lopez",
+    "department": "Physics",
+    "title": "Professor",
+    "office": "Building E-116",
+    "email": "lopez@university.edu"
+  },
+  "F09": {
+    "id": "F09",
+    "type": "faculty",
+    "name": "Mehmet Fischer",
+    "department": "Physics",
+    "title": "Associate Professor",
+    "office": "Building E-275",
+    "email": "fischer@university.edu"
+  },
+  "F10": {
+    "id": "F10",
+    "type": "faculty",
+    "name": "Kerem Erdem",
+    "department": "Computer Science",
+    "title": "Associate Professor",
+    "office": "Building B-385",
+    "email": "erdem@university.edu"
+  },
+  "C01": {
+    "id": "C01",
+    "type": "course",
+    "name": "Machine Learning",
+    "code": "MAC282",
+    "credits": 6,
+    "semester": "Spring",
+    "instructor_id": "F09"
+  },
+  "C02": {
+    "id": "C02",
+    "type": "course",
+    "name": "Linear Algebra",
+    "code": "LIN391",
+    "credits": 3,
+    "semester": "Fall",
+    "instructor_id": "F03"
+  },
+  "C03": {
+    "id": "C03",
+    "type": "course",
+    "name": "Quantum Mechanics",
+    "code": "QUA166",
+    "credits": 3,
+    "semester": "Fall",
+    "instructor_id": "F09"
+  },
+  "C04": {
+    "id": "C04",
+    "type": "course",
+    "name": "Data Structures",
+    "code": "DAT462",
+    "credits": 4,
+    "semester": "Fall",
+    "instructor_id": "F09"
+  },
+  "C05": {
+    "id": "C05",
+    "type": "course",
+    "name": "Signal Processing",
+    "code": "SIG403",
+    "credits": 3,
+    "semester": "Fall",
+    "instructor_id": "F06"
+  },
+  "C06": {
+    "id": "C06",
+    "type": "course",
+    "name": "Genetics",
+    "code": "GEN217",
+    "credits": 4,
+    "semester": "Spring",
+    "instructor_id": "F09"
+  },
+  "C07": {
+    "id": "C07",
+    "type": "course",
+    "name": "Operating Systems",
+    "code": "OPE126",
+    "credits": 6,
+    "semester": "Spring",
+    "instructor_id": "F10"
+  },
+  "C08": {
+    "id": "C08",
+    "type": "course",
+    "name": "Probability Theory",
+    "code": "PRO390",
+    "credits": 6,
+    "semester": "Spring",
+    "instructor_id": "F08"
+  },
+  "C09": {
+    "id": "C09",
+    "type": "course",
+    "name": "Circuit Analysis",
+    "code": "CIR126",
+    "credits": 6,
+    "semester": "Spring",
+    "instructor_id": "F10"
+  },
+  "C10": {
+    "id": "C10",
+    "type": "course",
+    "name": "Computer Vision",
+    "code": "COM382",
+    "credits": 6,
+    "semester": "Spring",
+    "instructor_id": "F05"
+  },
+  "P01": {
+    "id": "P01",
+    "type": "project",
+    "name": "Smart Campus Energy",
+    "leader_id": "F05",
+    "budget": 310000,
+    "start_year": 2022
+  },
+  "P02": {
+    "id": "P02",
+    "type": "project",
+    "name": "Protein Folding Simulation",
+    "leader_id": "F09",
+    "budget": 440000,
+    "start_year": 2018
+  },
+  "P03": {
+    "id": "P03",
+    "type": "project",
+    "name": "Autonomous Drone Navigation",
+    "leader_id": "F02",
+    "budget": 450000,
+    "start_year": 2019
+  },
+  "P04": {
+    "id": "P04",
+    "type": "project",
+    "name": "Quantum Error Correction",
+    "leader_id": "F06",
+    "budget": 170000,
+    "start_year": 2019
+  },
+  "P05": {
+    "id": "P05",
+    "type": "project",
+    "name": "Medical Image Analysis",
+    "leader_id": "F03",
+    "budget": 460000,
+    "start_year": 2024
+  }
+}

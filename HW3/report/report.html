@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DSAI 582 Assignment 3 Report</title>
+<style>
+  @page { size: A4; margin: 15mm 16mm; }
+  body { font-family: Helvetica, Arial, sans-serif; font-size: 10pt; line-height: 1.4; color: #0b0b0b; margin: 0; }
+  h1 { font-size: 15pt; margin: 0 0 2px; }
+  .byline { color: #52514e; margin-bottom: 10px; }
+  h2 { font-size: 12pt; margin: 14px 0 4px; border-bottom: 1px solid #c3c2b7; padding-bottom: 2px; }
+  h3 { font-size: 10.5pt; margin: 10px 0 3px; }
+  p { margin: 4px 0; }
+  ul, ol { margin: 4px 0; padding-left: 18px; }
+  li { margin: 1px 0; }
+  table { border-collapse: collapse; margin: 6px 0; font-size: 9pt; }
+  th, td { border-bottom: 1px solid #e1e0d9; padding: 2px 8px; text-align: left; }
+  th { border-bottom: 1px solid #c3c2b7; }
+  td.num, th.num { text-align: right; }
+  code, pre { font-family: Menlo, Consolas, monospace; font-size: 8.5pt; }
+  pre { background: #f4f4f1; padding: 5px 8px; margin: 4px 0; white-space: pre-wrap; }
+  .cols { display: flex; gap: 12px; }
+  .cols > div { flex: 1; min-width: 0; }
+  figure { margin: 6px 0; break-inside: avoid; }
+  figure img { width: 100%; }
+  figcaption { font-size: 8.5pt; color: #52514e; }
+  .ok { color: #0a7a0a; font-weight: bold; }
+  .bad { color: #b02a2a; font-weight: bold; }
+  .keep { break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<h1>DSAI 582 Assignment 3: Reinforcement Learning for a Tool-Using Agent</h1>
+<div class="byline">Onur Alp Güvercin · 2024700147 · Qwen2.5-0.5B-Instruct + LoRA, trained with REINFORCE (PyTorch, Transformers, PEFT)</div>
+
+<p><b>Summary.</b> The agent answers questions about a fictional university with two database tools. With a simple one-line tool format written in the system prompt, test accuracy rises from <b>55% (11/20)</b> before training to <b>90% (18/20)</b> after 100 REINFORCE updates, while tool calls per question drop from 3.30 to 2.60 and invalid requests from 1.5% to 0%. Five prompt setups were compared; the tool format had a larger effect than RL itself.</p>
+
+<h2>1. Environment and tools</h2>
+<ul>
+  <li><b>Database</b> (<code>src/database.py</code>), generated with the student ID <code>2024700147</code> as the seed: 10 faculty members (<code>F01</code>–<code>F10</code>: name, department, title, office, email), 10 courses (<code>C01</code>–<code>C10</code>: code, credits, semester, <code>instructor_id</code>) and 5 projects (<code>P01</code>–<code>P05</code>: budget, start year, <code>leader_id</code>). The ID links allow multi-hop questions.</li>
+  <li><b><code>search(query)</code></b> scores every record by how many query words (3+ characters) it contains and returns up to 5 matches as <code>ID: name (type)</code>. <b><code>read_record(id)</code></b> returns the full record as JSON, or an error for an unknown ID.</li>
+  <li><b>Questions</b> (<code>src/questions.py</code>) come from templates over the database and are split with the same seed into <b>30 training and 20 test questions</b> with reference answers (no overlap). The test set has 12 single-hop questions (e.g. “In which semester is Linear Algebra offered?”) and 8 multi-hop questions (e.g. “Which department does the instructor of Computer Vision belong to?”).</li>
+  <li>The agent may make <b>at most four tool calls</b>; after the fourth it is told to answer and gets one final reply.</li>
+</ul>
+
+<h2>2. Tool request format and initial evaluation</h2>
+<div class="cols">
+<div>
+<p>The format is described in the system prompt (<code>src/agent_custom.py</code>). Each reply is exactly <b>one line</b>; generation stops at the line break. Tool results come back as a user message starting with <code>RESULT:</code>.</p>
+<pre>SEARCH: &lt;words&gt;          search the database
+READ: &lt;record id&gt;        read the full record
+ANSWER: &lt;short answer&gt;   final answer</pre>
+<p>The system prompt also holds two worked examples with made-up records (one single-hop, one multi-hop).</p>
+</div>
+<div>
+<ul>
+  <li><b>Invalid request:</b> the reply does not start with <code>SEARCH:</code>, <code>READ:</code> or <code>ANSWER:</code>, the value is empty, or the record ID does not exist. Invalid requests count toward the 4-call limit.</li>
+  <li><b>No answer:</b> the episode ends without <code>ANSWER:</code>; counted as wrong.</li>
+  <li><b>Correct:</b> the reference answer appears in the model's answer after lower-casing and removing punctuation (except <code>@ . -</code>).</li>
+  <li><b>Invalid rate</b> = invalid requests / all tool requests.</li>
+  <li><b>Decoding:</b> greedy, at most 64 new tokens per reply.</li>
+</ul>
+</div>
+</div>
+
+<table class="keep">
+  <tr><th>Before training (base model)</th><th class="num">Value</th></tr>
+  <tr><td>Answer accuracy</td><td class="num">55% (11/20): single-hop 8/12, multi-hop 3/8</td></tr>
+  <tr><td>Average tool calls</td><td class="num">3.30</td></tr>
+  <tr><td>Invalid tool requests</td><td class="num">1.5% (1/66)</td></tr>
+</table>
+<p>The base model already follows the format, but 5 of its 9 errors are <b>loops</b>: it repeats the same <code>SEARCH</code> or <code>READ</code> until the four calls run out and never writes <code>ANSWER:</code>.</p>
+
+<h2>3. Reinforcement learning</h2>
+<div class="cols">
+<div>
+<p>Each of the <b>100 optimizer updates</b> (<code>src/train_rl.py</code>):</p>
+<ol>
+  <li>samples 4 training questions and <b>generates</b> one episode each with <code>torch.no_grad()</code> (temperature 1.0);</li>
+  <li>computes the reward <b>R = 1[correct] − 0.05 · tool calls</b> (invalid calls included);</li>
+  <li><b>recomputes</b> the log-probabilities of the same token sequence <b>with gradients</b>;</li>
+  <li>minimizes <b>−(R − b) · Σ log π(token)</b>, averaged over the episodes, where the sum runs only over <b>assistant-generated tokens</b>: a mask removes the system prompt, the question and every tool result;</li>
+  <li>updates the moving-average baseline <b>b ← 0.9 b + 0.1 · mean R</b>.</li>
+</ol>
+</div>
+<div>
+<table>
+  <tr><th>Setting</th><th>Value</th></tr>
+  <tr><td>Trainable parameters</td><td>LoRA only: r = 8, α = 16, dropout 0.05 on <code>q/k/v/o_proj</code> (1.08M, 0.22%)</td></tr>
+  <tr><td>Optimizer</td><td>AdamW, lr 5e-5, grad. clip 1.0</td></tr>
+  <tr><td>Episodes / update</td><td>4</td></tr>
+  <tr><td>Outputs</td><td><code>outputs/exp_custom/train_log.csv</code>, <code>lora_adapter/</code></td></tr>
+</table>
+<table>
+  <tr><th>Updates (final run)</th><th class="num">Reward</th><th class="num">Accuracy</th><th class="num">Calls</th><th class="num">Invalid</th></tr>
+  <tr><td>1–10</td><td class="num">+0.40</td><td class="num">55%</td><td class="num">2.90</td><td class="num">14</td></tr>
+  <tr><td>41–50</td><td class="num">+0.73</td><td class="num">88%</td><td class="num">2.83</td><td class="num">5</td></tr>
+  <tr><td>91–100</td><td class="num">+0.88</td><td class="num">100%</td><td class="num">2.45</td><td class="num">0</td></tr>
+</table>
+</div>
+</div>
+
+<figure>
+  <img src="legend.svg" alt="Legend">
+  <div class="cols">
+    <div><img src="training_accuracy.svg" alt="Training accuracy per run"></div>
+    <div><img src="training_tool_calls.svg" alt="Tool calls per question per run"></div>
+  </div>
+  <figcaption>Figure 1. Training curves of all five runs (sampled training episodes, mean of the last 10 updates). Left: accuracy. Right: tool calls per question. The final run is “Custom few-shot”. The values are listed in the tables of Sections 3 and 5.</figcaption>
+</figure>
+
+<h2>4. Comparison and explanation</h2>
+<table class="keep">
+  <tr><th>Test set (20 questions, greedy decoding)</th><th class="num">Before</th><th class="num">After</th></tr>
+  <tr><td>Answer accuracy</td><td class="num">55% (11/20)</td><td class="num"><b>90% (18/20)</b></td></tr>
+  <tr><td>Single-hop / multi-hop</td><td class="num">8/12 / 3/8</td><td class="num">12/12 / 6/8</td></tr>
+  <tr><td>Average tool calls</td><td class="num">3.30</td><td class="num">2.60</td></tr>
+  <tr><td>Invalid tool requests</td><td class="num">1.5% (1/66)</td><td class="num">0.0% (0/52)</td></tr>
+  <tr><td>Episodes with no answer</td><td class="num">5</td><td class="num">0</td></tr>
+</table>
+
+<div class="cols keep">
+<div>
+<h3><span class="ok">Successful</span>: “Who teaches Circuit Analysis?” (reference: Kerem Erdem)</h3>
+<pre>Before training (no answer):
+SEARCH: Circuit Analysis
+RESULT: C09: Circuit Analysis (course)
+  P05: Medical Image Analysis (project)
+SEARCH: Medical Image Analysis
+SEARCH: Circuit Analysis
+SEARCH: Medical Image Analysis
+(same two results every time)
+→ 4 calls used, no ANSWER
+
+After training (3 calls, correct):
+SEARCH: Circuit Analysis
+RESULT: C09: Circuit Analysis (course) ...
+READ: C09
+RESULT: {..., "instructor_id": "F10"}
+READ: F10
+RESULT: {"id": "F10",
+  "name": "Kerem Erdem", ...}
+ANSWER: Kerem Erdem</pre>
+</div>
+<div>
+<h3><span class="bad">Failed</span>: “Which department does the instructor of Computer Vision belong to?” (reference: Physics)</h3>
+<pre>After training:
+SEARCH: Computer Vision
+RESULT: C10: Computer Vision (course)
+  F01: James Jensen (faculty, Computer Science)
+  F10: Kerem Erdem (faculty, Computer Science)
+READ: C10
+RESULT: {..., "instructor_id": "F05"}
+READ: F01                   ← should be F05
+RESULT: {"id": "F01", ...,
+  "department": "Computer Science", ...}
+ANSWER: Computer Science</pre>
+</div>
+</div>
+
+<p><b>What RL changed.</b> The base model already knew the format but often got stuck: it repeated the same call (as in the successful example) or read only the course record. RL rewards episodes that reach a correct <code>ANSWER:</code>, so the policy learned the full chain <code>SEARCH → READ course/project → READ instructor/leader → ANSWER</code> and to stop as soon as the answer is known. The −0.05 cost per call pushed out the repeated calls (3.30 → 2.60 calls, no loops left), and invalid requests disappeared. 7 test questions were gained and none were lost.</p>
+<p><b>Why the remaining errors happen.</b> Both remaining errors are multi-hop questions where the model reads the wrong second record. In the failed example the search for “Computer Vision” also returns two Computer Science professors (the word “Computer” matches their department), and the model reads <code>F01</code> from that list instead of the course's <code>instructor_id</code> (<code>F05</code>). The other error is the same: for “Who teaches Quantum Mechanics?” it reads project <code>P04</code> (Quantum Error Correction), which the search also returned. The policy has learned <i>to read a second record</i>, but not yet to always take its ID from the first record; a stricter search or more multi-hop training questions would likely help.</p>
+
+<h2>5. Prompt and tool-format experiments</h2>
+<p>All runs use the same seed, questions, reward, LoRA and training settings (<code>experiments.md</code>). Two things vary: the <b>tool format</b> (Qwen's native <code>&lt;tool_call&gt;{json}&lt;/tool_call&gt;</code> with <code>tools=</code>, where any reply without a tool call is the final answer; or our one-line format) and <b>where the two examples are</b> (none, separate chat turns, or the system prompt).</p>
+<table class="keep">
+  <tr><th>Run (format · examples)</th><th class="num">Base</th><th class="num">Trained</th><th class="num">Calls (trained)</th><th>Trained model</th></tr>
+  <tr><td>Original · none</td><td class="num">15%</td><td class="num">15%</td><td class="num">1.00</td><td>1 search, then answers; unchanged</td></tr>
+  <tr><td>Original · chat turns</td><td class="num">15%</td><td class="num">50%</td><td class="num">2.10</td><td>learned to READ; multi-hop 0/8</td></tr>
+  <tr><td>Original · system prompt</td><td class="num">15%</td><td class="num">20%</td><td class="num">0.00</td><td>stopped using tools, guesses</td></tr>
+  <tr><td>Custom · none</td><td class="num">15%</td><td class="num">20%</td><td class="num">0.00</td><td>stopped using tools, guesses</td></tr>
+  <tr><td><b>Custom · system prompt (final)</b></td><td class="num"><b>55%</b></td><td class="num"><b>90%</b></td><td class="num">2.60</td><td>full multi-hop chains</td></tr>
+</table>
+<ol>
+  <li><b>The format matters more than RL here.</b> The untrained custom run (55%) beats the best trained run with Qwen's format (50%). Moving the examples into the system prompt does not help Qwen's format (15%), so the gain comes from the format and its rules: one line per reply, an explicit <code>ANSWER:</code>, and free text counted as invalid instead of ending the episode. With Qwen's format the model tends to answer right after the first tool result, which ends the episode early.</li>
+  <li><b>RL strengthens the behavior that already earns reward during training.</b> The two improved runs had the highest training accuracy in the first 10 updates (55% and 12%); the two runs that stopped using tools started at 2% and 5%. The run without examples (10%) earned its reward from one-search answers to department questions (the search result shows the department), so RL kept exactly that behavior and the test score did not change.</li>
+  <li><b>With a weak start, the tool cost causes reward hacking.</b> In two runs the early tool calls rarely led to a correct answer but always cost −0.05, while answering without tools costs nothing and is sometimes right by chance (4 of 30 training answers are “Physics”). RL drove tool calls to 0, and their 20% comes from guessing, not from the database.</li>
+</ol>
+
+<h2>6. Limitations</h2>
+<ul>
+  <li>One seed and 20 test questions per run: one question is 5 points, and a 95% interval around 50% is about ±22 points. 90% vs 50% is a clear difference; 15% vs 20% is not.</li>
+  <li>The final setup was chosen by comparing runs on the test set, so 90% is slightly optimistic. Training and test questions come from the same templates and database.</li>
+  <li>Correctness is a substring check; it does not penalize extra words in an answer.</li>
+</ul>
+
+</body>
+</html>

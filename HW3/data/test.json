@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Which department does Oscar Kaya belong to?",
+    "answer": "Physics"
+  },
+  {
+    "question": "Which department does the instructor of Signal Processing belong to?",
+    "answer": "Physics"
+  },
+  {
+    "question": "Where is the office of Kerem Erdem?",
+    "answer": "Building B-385"
+  },
+  {
+    "question": "Which department does the instructor of Computer Vision belong to?",
+    "answer": "Physics"
+  },
+  {
+    "question": "What is the budget of the Medical Image Analysis project?",
+    "answer": "460000"
+  },
+  {
+    "question": "Who leads the Medical Image Analysis project?",
+    "answer": "David Hughes"
+  },
+  {
+    "question": "Which department does the instructor of Quantum Mechanics belong to?",
+    "answer": "Physics"
+  },
+  {
+    "question": "Which department does Mehmet Fischer belong to?",
+    "answer": "Physics"
+  },
+  {
+    "question": "In which semester is Machine Learning offered?",
+    "answer": "Spring"
+  },
+  {
+    "question": "In which semester is Linear Algebra offered?",
+    "answer": "Fall"
+  },
+  {
+    "question": "Who leads the Quantum Error Correction project?",
+    "answer": "Grace Anderson"
+  },
+  {
+    "question": "How many credits is the Signal Processing course?",
+    "answer": "3"
+  },
+  {
+    "question": "Which department does David Hughes belong to?",
+    "answer": "Mathematics"
+  },
+  {
+    "question": "Who teaches Circuit Analysis?",
+    "answer": "Kerem Erdem"
+  },
+  {
+    "question": "Where is the office of Mehmet Fischer?",
+    "answer": "Building E-275"
+  },
+  {
+    "question": "Where is the office of the instructor of Data Structures?",
+    "answer": "Building E-275"
+  },
+  {
+    "question": "In which semester is Quantum Mechanics offered?",
+    "answer": "Fall"
+  },
+  {
+    "question": "Who teaches Quantum Mechanics?",
+    "answer": "Mehmet Fischer"
+  },
+  {
+    "question": "What is the email address of Grace Anderson?",
+    "answer": "anderson@university.edu"
+  },
+  {
+    "question": "What is the academic title of Mehmet Fischer?",
+    "answer": "Associate Professor"
+  }
+]

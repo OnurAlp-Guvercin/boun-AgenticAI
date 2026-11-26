@@ -1,0 +1,25 @@
+[1/20] correct=True tool_calls=2 invalid=0 | Which department does Oscar Kaya belong to?
+[2/20] correct=False tool_calls=2 invalid=0 | Which department does the instructor of Signal Processing belong to?
+[3/20] correct=True tool_calls=2 invalid=0 | Where is the office of Kerem Erdem?
+[4/20] correct=False tool_calls=2 invalid=0 | Which department does the instructor of Computer Vision belong to?
+[5/20] correct=True tool_calls=2 invalid=0 | What is the budget of the Medical Image Analysis project?
+[6/20] correct=False tool_calls=2 invalid=0 | Who leads the Medical Image Analysis project?
+[7/20] correct=False tool_calls=2 invalid=0 | Which department does the instructor of Quantum Mechanics belong to?
+[8/20] correct=True tool_calls=2 invalid=0 | Which department does Mehmet Fischer belong to?
+[9/20] correct=True tool_calls=2 invalid=0 | In which semester is Machine Learning offered?
+[10/20] correct=True tool_calls=2 invalid=0 | In which semester is Linear Algebra offered?
+[11/20] correct=False tool_calls=2 invalid=0 | Who leads the Quantum Error Correction project?
+[12/20] correct=True tool_calls=2 invalid=0 | How many credits is the Signal Processing course?
+[13/20] correct=True tool_calls=2 invalid=0 | Which department does David Hughes belong to?
+[14/20] correct=False tool_calls=2 invalid=0 | Who teaches Circuit Analysis?
+[15/20] correct=True tool_calls=2 invalid=0 | Where is the office of Mehmet Fischer?
+[16/20] correct=False tool_calls=2 invalid=0 | Where is the office of the instructor of Data Structures?
+[17/20] correct=True tool_calls=2 invalid=0 | In which semester is Quantum Mechanics offered?
+[18/20] correct=False tool_calls=2 invalid=0 | Who teaches Quantum Mechanics?
+[19/20] correct=False tool_calls=4 invalid=4 | What is the email address of Grace Anderson?
+[20/20] correct=False tool_calls=2 invalid=0 | What is the academic title of Mehmet Fischer?
+
+Accuracy:            50%
+Average tool calls:  2.10
+Invalid requests:    9.5%
+Saved to /Users/onur.guvercin/Desktop/AgenticAI/HWs/HW3/outputs/exp_fewshot/eval_after.json

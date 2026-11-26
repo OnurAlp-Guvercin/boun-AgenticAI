@@ -1,0 +1,122 @@
+[
+  {
+    "question": "Which department does Grace Anderson belong to?",
+    "answer": "Physics"
+  },
+  {
+    "question": "Which department does Alice Ivanova belong to?",
+    "answer": "Physics"
+  },
+  {
+    "question": "How many credits is the Quantum Mechanics course?",
+    "answer": "3"
+  },
+  {
+    "question": "Which department does James Jensen belong to?",
+    "answer": "Computer Science"
+  },
+  {
+    "question": "Which department does the leader of the Quantum Error Correction project belong to?",
+    "answer": "Physics"
+  },
+  {
+    "question": "What is the budget of the Quantum Error Correction project?",
+    "answer": "170000"
+  },
+  {
+    "question": "Where is the office of Hakan Lopez?",
+    "answer": "Building E-116"
+  },
+  {
+    "question": "How many credits is the Operating Systems course?",
+    "answer": "6"
+  },
+  {
+    "question": "What is the email address of Kerem Erdem?",
+    "answer": "erdem@university.edu"
+  },
+  {
+    "question": "In which year did the Smart Campus Energy project start?",
+    "answer": "2022"
+  },
+  {
+    "question": "Which department does the instructor of Data Structures belong to?",
+    "answer": "Physics"
+  },
+  {
+    "question": "Where is the office of Alice Ivanova?",
+    "answer": "Building A-378"
+  },
+  {
+    "question": "Who leads the Protein Folding Simulation project?",
+    "answer": "Mehmet Fischer"
+  },
+  {
+    "question": "What is the budget of the Protein Folding Simulation project?",
+    "answer": "440000"
+  },
+  {
+    "question": "Where is the office of the instructor of Genetics?",
+    "answer": "Building E-275"
+  },
+  {
+    "question": "How many credits is the Linear Algebra course?",
+    "answer": "3"
+  },
+  {
+    "question": "Who teaches Signal Processing?",
+    "answer": "Grace Anderson"
+  },
+  {
+    "question": "What is the email address of Mehmet Fischer?",
+    "answer": "fischer@university.edu"
+  },
+  {
+    "question": "Which department does the leader of the Autonomous Drone Navigation project belong to?",
+    "answer": "Mathematics"
+  },
+  {
+    "question": "What is the email address of Oscar Kaya?",
+    "answer": "kaya@university.edu"
+  },
+  {
+    "question": "Where is the office of Carla Moreau?",
+    "answer": "Building C-300"
+  },
+  {
+    "question": "Which department does the instructor of Circuit Analysis belong to?",
+    "answer": "Computer Science"
+  },
+  {
+    "question": "What is the email address of Hakan Lopez?",
+    "answer": "lopez@university.edu"
+  },
+  {
+    "question": "What is the academic title of Hakan Lopez?",
+    "answer": "Professor"
+  },
+  {
+    "question": "What is the academic title of Alice Ivanova?",
+    "answer": "Professor"
+  },
+  {
+    "question": "In which semester is Circuit Analysis offered?",
+    "answer": "Spring"
+  },
+  {
+    "question": "How many credits is the Computer Vision course?",
+    "answer": "6"
+  },
+  {
+    "question": "What is the email address of David Hughes?",
+    "answer": "hughes@university.edu"
+  },
+  {
+    "question": "In which year did the Protein Folding Simulation project start?",
+    "answer": "2018"
+  },
+  {
+    "question": "What is the academic title of James Jensen?",
+    "answer": "Assistant Professor"
+  }
+]

@@ -1,0 +1,289 @@
+{
+  "metrics": {
+    "accuracy": 0.2,
+    "avg_tool_calls": 0.0,
+    "invalid_request_pct": 0.0
+  },
+  "results": [
+    {
+      "question": "Which department does Oscar Kaya belong to?",
+      "reference": "Physics",
+      "answer": "Department of Computer Science",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Department of Computer Science"
+        }
+      ]
+    },
+    {
+      "question": "Which department does the instructor of Signal Processing belong to?",
+      "reference": "Physics",
+      "answer": "Signal and Information Processing",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Signal and Information Processing"
+        }
+      ]
+    },
+    {
+      "question": "Where is the office of Kerem Erdem?",
+      "reference": "Building B-385",
+      "answer": "University of Illinois at Urbana-Champaign",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: University of Illinois at Urbana-Champaign"
+        }
+      ]
+    },
+    {
+      "question": "Which department does the instructor of Computer Vision belong to?",
+      "reference": "Physics",
+      "answer": "Computer Science",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Computer Science"
+        }
+      ]
+    },
+    {
+      "question": "What is the budget of the Medical Image Analysis project?",
+      "reference": "460000",
+      "answer": "$500,000",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: $500,000"
+        }
+      ]
+    },
+    {
+      "question": "Who leads the Medical Image Analysis project?",
+      "reference": "David Hughes",
+      "answer": "Dr. Jane Smith",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Dr. Jane Smith"
+        }
+      ]
+    },
+    {
+      "question": "Which department does the instructor of Quantum Mechanics belong to?",
+      "reference": "Physics",
+      "answer": "Physics",
+      "correct": true,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Physics"
+        }
+      ]
+    },
+    {
+      "question": "Which department does Mehmet Fischer belong to?",
+      "reference": "Physics",
+      "answer": "Department of Computer Science",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Department of Computer Science"
+        }
+      ]
+    },
+    {
+      "question": "In which semester is Machine Learning offered?",
+      "reference": "Spring",
+      "answer": "Fall",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Fall"
+        }
+      ]
+    },
+    {
+      "question": "In which semester is Linear Algebra offered?",
+      "reference": "Fall",
+      "answer": "Fall",
+      "correct": true,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Fall"
+        }
+      ]
+    },
+    {
+      "question": "Who leads the Quantum Error Correction project?",
+      "reference": "Grace Anderson",
+      "answer": "Google",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Google"
+        }
+      ]
+    },
+    {
+      "question": "How many credits is the Signal Processing course?",
+      "reference": "3",
+      "answer": "3",
+      "correct": true,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: 3"
+        }
+      ]
+    },
+    {
+      "question": "Which department does David Hughes belong to?",
+      "reference": "Mathematics",
+      "answer": "Department of Computer Science",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Department of Computer Science"
+        }
+      ]
+    },
+    {
+      "question": "Who teaches Circuit Analysis?",
+      "reference": "Kerem Erdem",
+      "answer": "Professor Smith",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Professor Smith"
+        }
+      ]
+    },
+    {
+      "question": "Where is the office of Mehmet Fischer?",
+      "reference": "Building E-275",
+      "answer": "on the 1st floor, next to the library",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: on the 1st floor, next to the library"
+        }
+      ]
+    },
+    {
+      "question": "Where is the office of the instructor of Data Structures?",
+      "reference": "Building E-275",
+      "answer": "on the first floor of the main building",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: on the first floor of the main building"
+        }
+      ]
+    },
+    {
+      "question": "In which semester is Quantum Mechanics offered?",
+      "reference": "Fall",
+      "answer": "Fall",
+      "correct": true,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Fall"
+        }
+      ]
+    },
+    {
+      "question": "Who teaches Quantum Mechanics?",
+      "reference": "Mehmet Fischer",
+      "answer": "Professor David Bohm",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Professor David Bohm"
+        }
+      ]
+    },
+    {
+      "question": "What is the email address of Grace Anderson?",
+      "reference": "anderson@university.edu",
+      "answer": "grace.anderson@example.com",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: grace.anderson@example.com"
+        }
+      ]
+    },
+    {
+      "question": "What is the academic title of Mehmet Fischer?",
+      "reference": "Associate Professor",
+      "answer": "Professor",
+      "correct": false,
+      "tool_calls": 0,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "ANSWER: Professor"
+        }
+      ]
+    }
+  ]
+}

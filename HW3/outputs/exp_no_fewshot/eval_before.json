@@ -1,0 +1,449 @@
+{
+  "metrics": {
+    "accuracy": 0.15,
+    "avg_tool_calls": 1.0,
+    "invalid_request_pct": 0.0
+  },
+  "results": [
+    {
+      "question": "Which department does Oscar Kaya belong to?",
+      "reference": "Physics",
+      "answer": "Oscar Kaya belongs to the Physics department.",
+      "correct": true,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Oscar Kaya\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "F05: Oscar Kaya (faculty, Physics)"
+        },
+        {
+          "role": "assistant",
+          "content": "Oscar Kaya belongs to the Physics department."
+        }
+      ]
+    },
+    {
+      "question": "Which department does the instructor of Signal Processing belong to?",
+      "reference": "Physics",
+      "answer": "The instructor of Signal Processing belongs to the department C05: Signal Processing.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"instructor of Signal Processing\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C05: Signal Processing (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "The instructor of Signal Processing belongs to the department C05: Signal Processing."
+        }
+      ]
+    },
+    {
+      "question": "Where is the office of Kerem Erdem?",
+      "reference": "Building B-385",
+      "answer": "The office of Kerem Erdem is located in F10.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"office of Kerem Erdem\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "F10: Kerem Erdem (faculty, Computer Science)"
+        },
+        {
+          "role": "assistant",
+          "content": "The office of Kerem Erdem is located in F10."
+        }
+      ]
+    },
+    {
+      "question": "Which department does the instructor of Computer Vision belong to?",
+      "reference": "Physics",
+      "answer": "The instructor of Computer Vision belongs to the department of Computer Science.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Computer Vision\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C10: Computer Vision (course)\nF01: James Jensen (faculty, Computer Science)\nF10: Kerem Erdem (faculty, Computer Science)"
+        },
+        {
+          "role": "assistant",
+          "content": "The instructor of Computer Vision belongs to the department of Computer Science."
+        }
+      ]
+    },
+    {
+      "question": "What is the budget of the Medical Image Analysis project?",
+      "reference": "460000",
+      "answer": "The Medical Image Analysis project has a budget of P05.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Medical Image Analysis project\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "P05: Medical Image Analysis (project)\nC09: Circuit Analysis (course)\nP01: Smart Campus Energy (project)\nP02: Protein Folding Simulation (project)\nP03: Autonomous Drone Navigation (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "The Medical Image Analysis project has a budget of P05."
+        }
+      ]
+    },
+    {
+      "question": "Who leads the Medical Image Analysis project?",
+      "reference": "David Hughes",
+      "answer": "The Medical Image Analysis project is led by P05.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Medical Image Analysis project\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "P05: Medical Image Analysis (project)\nC09: Circuit Analysis (course)\nP01: Smart Campus Energy (project)\nP02: Protein Folding Simulation (project)\nP03: Autonomous Drone Navigation (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "The Medical Image Analysis project is led by P05."
+        }
+      ]
+    },
+    {
+      "question": "Which department does the instructor of Quantum Mechanics belong to?",
+      "reference": "Physics",
+      "answer": "The instructor of Quantum Mechanics belongs to the department C03. They are involved in Quantum Error Correction (project).",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Quantum Mechanics\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "The instructor of Quantum Mechanics belongs to the department C03. They are involved in Quantum Error Correction (project)."
+        }
+      ]
+    },
+    {
+      "question": "Which department does Mehmet Fischer belong to?",
+      "reference": "Physics",
+      "answer": "Mehmet Fischer is a faculty member in the Physics department.",
+      "correct": true,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Mehmet Fischer\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "F09: Mehmet Fischer (faculty, Physics)"
+        },
+        {
+          "role": "assistant",
+          "content": "Mehmet Fischer is a faculty member in the Physics department."
+        }
+      ]
+    },
+    {
+      "question": "In which semester is Machine Learning offered?",
+      "reference": "Spring",
+      "answer": "Machine Learning is offered in the C01 semester.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Machine Learning\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C01: Machine Learning (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "Machine Learning is offered in the C01 semester."
+        }
+      ]
+    },
+    {
+      "question": "In which semester is Linear Algebra offered?",
+      "reference": "Fall",
+      "answer": "Linear Algebra is offered in the C02 semester.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Linear Algebra\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C02: Linear Algebra (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "Linear Algebra is offered in the C02 semester."
+        }
+      ]
+    },
+    {
+      "question": "Who leads the Quantum Error Correction project?",
+      "reference": "Grace Anderson",
+      "answer": "The Quantum Error Correction project is led by P04.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Quantum Error Correction project\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "P04: Quantum Error Correction (project)\nC03: Quantum Mechanics (course)\nP01: Smart Campus Energy (project)\nP02: Protein Folding Simulation (project)\nP03: Autonomous Drone Navigation (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "The Quantum Error Correction project is led by P04."
+        }
+      ]
+    },
+    {
+      "question": "How many credits is the Signal Processing course?",
+      "reference": "3",
+      "answer": "The Signal Processing course has 5 credits.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Signal Processing\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C05: Signal Processing (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "The Signal Processing course has 5 credits."
+        }
+      ]
+    },
+    {
+      "question": "Which department does David Hughes belong to?",
+      "reference": "Mathematics",
+      "answer": "David Hughes is a faculty member in the Mathematics department.",
+      "correct": true,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"David Hughes\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "F03: David Hughes (faculty, Mathematics)"
+        },
+        {
+          "role": "assistant",
+          "content": "David Hughes is a faculty member in the Mathematics department."
+        }
+      ]
+    },
+    {
+      "question": "Who teaches Circuit Analysis?",
+      "reference": "Kerem Erdem",
+      "answer": "Circuit Analysis is taught by Professor C09. Medical Image Analysis is a project taught by Professor P05.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"teaches Circuit Analysis\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C09: Circuit Analysis (course)\nP05: Medical Image Analysis (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "Circuit Analysis is taught by Professor C09. Medical Image Analysis is a project taught by Professor P05."
+        }
+      ]
+    },
+    {
+      "question": "Where is the office of Mehmet Fischer?",
+      "reference": "Building E-275",
+      "answer": "The office of Mehmet Fischer is located in F09.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Mehmet Fischer office\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "F09: Mehmet Fischer (faculty, Physics)"
+        },
+        {
+          "role": "assistant",
+          "content": "The office of Mehmet Fischer is located in F09."
+        }
+      ]
+    },
+    {
+      "question": "Where is the office of the instructor of Data Structures?",
+      "reference": "Building E-275",
+      "answer": "The office of the instructor of Data Structures is located in C04. The faculty associated with Data Structures is David Hughes.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"office of the instructor of Data Structures\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C04: Data Structures (course)\nC08: Probability Theory (course)\nF02: Irene Celik (faculty, Mathematics)\nF03: David Hughes (faculty, Mathematics)"
+        },
+        {
+          "role": "assistant",
+          "content": "The office of the instructor of Data Structures is located in C04. The faculty associated with Data Structures is David Hughes."
+        }
+      ]
+    },
+    {
+      "question": "In which semester is Quantum Mechanics offered?",
+      "reference": "Fall",
+      "answer": "Quantum Mechanics is offered in the C03 semester.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Quantum Mechanics\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "Quantum Mechanics is offered in the C03 semester."
+        }
+      ]
+    },
+    {
+      "question": "Who teaches Quantum Mechanics?",
+      "reference": "Mehmet Fischer",
+      "answer": "C03 teaches Quantum Mechanics (course), and P04 teaches Quantum Error Correction (project).",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Quantum Mechanics\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "C03 teaches Quantum Mechanics (course), and P04 teaches Quantum Error Correction (project)."
+        }
+      ]
+    },
+    {
+      "question": "What is the email address of Grace Anderson?",
+      "reference": "anderson@university.edu",
+      "answer": "The email address of Grace Anderson is ganderson2@ucsd.edu.",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"read_record\", \"arguments\": {\"record_id\": \"P02\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"P02\", \"type\": \"project\", \"name\": \"Protein Folding Simulation\", \"leader_id\": \"F09\", \"budget\": 440000, \"start_year\": 2018}"
+        },
+        {
+          "role": "assistant",
+          "content": "The email address of Grace Anderson is ganderson2@ucsd.edu."
+        }
+      ]
+    },
+    {
+      "question": "What is the academic title of Mehmet Fischer?",
+      "reference": "Associate Professor",
+      "answer": "The academic title of Mehmet Fischer is F09: Mehmet Fischer (faculty, Physics).",
+      "correct": false,
+      "tool_calls": 1,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "<tool_call>\n{\"name\": \"search\", \"arguments\": {\"query\": \"Mehmet Fischer\"}}\n</tool_call>"
+        },
+        {
+          "role": "tool",
+          "content": "F09: Mehmet Fischer (faculty, Physics)"
+        },
+        {
+          "role": "assistant",
+          "content": "The academic title of Mehmet Fischer is F09: Mehmet Fischer (faculty, Physics)."
+        }
+      ]
+    }
+  ]
+}

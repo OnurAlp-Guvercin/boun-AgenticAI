@@ -1,0 +1,817 @@
+{
+  "metrics": {
+    "accuracy": 0.55,
+    "avg_tool_calls": 3.3,
+    "invalid_request_pct": 1.5151515151515151
+  },
+  "results": [
+    {
+      "question": "Which department does Oscar Kaya belong to?",
+      "reference": "Physics",
+      "answer": "Physics",
+      "correct": true,
+      "tool_calls": 2,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Oscar Kaya"
+        },
+        {
+          "role": "tool",
+          "content": "F05: Oscar Kaya (faculty, Physics)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F05"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F05\", \"type\": \"faculty\", \"name\": \"Oscar Kaya\", \"department\": \"Physics\", \"title\": \"Professor\", \"office\": \"Building E-197\", \"email\": \"kaya@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Physics"
+        }
+      ]
+    },
+    {
+      "question": "Which department does the instructor of Signal Processing belong to?",
+      "reference": "Physics",
+      "answer": "Physics",
+      "correct": true,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Signal Processing"
+        },
+        {
+          "role": "tool",
+          "content": "C05: Signal Processing (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C05"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C05\", \"type\": \"course\", \"name\": \"Signal Processing\", \"code\": \"SIG403\", \"credits\": 3, \"semester\": \"Fall\", \"instructor_id\": \"F06\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F06"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F06\", \"type\": \"faculty\", \"name\": \"Grace Anderson\", \"department\": \"Physics\", \"title\": \"Assistant Professor\", \"office\": \"Building D-106\", \"email\": \"anderson@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F06"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F06\", \"type\": \"faculty\", \"name\": \"Grace Anderson\", \"department\": \"Physics\", \"title\": \"Assistant Professor\", \"office\": \"Building D-106\", \"email\": \"anderson@university.edu\"}\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Physics"
+        }
+      ]
+    },
+    {
+      "question": "Where is the office of Kerem Erdem?",
+      "reference": "Building B-385",
+      "answer": "Building B-385",
+      "correct": true,
+      "tool_calls": 2,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Kerem Erdem"
+        },
+        {
+          "role": "tool",
+          "content": "F10: Kerem Erdem (faculty, Computer Science)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F10"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F10\", \"type\": \"faculty\", \"name\": \"Kerem Erdem\", \"department\": \"Computer Science\", \"title\": \"Associate Professor\", \"office\": \"Building B-385\", \"email\": \"erdem@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Building B-385"
+        }
+      ]
+    },
+    {
+      "question": "Which department does the instructor of Computer Vision belong to?",
+      "reference": "Physics",
+      "answer": null,
+      "correct": false,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Computer Vision"
+        },
+        {
+          "role": "tool",
+          "content": "C10: Computer Vision (course)\nF01: James Jensen (faculty, Computer Science)\nF10: Kerem Erdem (faculty, Computer Science)"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Computer Vision"
+        },
+        {
+          "role": "tool",
+          "content": "C10: Computer Vision (course)\nF01: James Jensen (faculty, Computer Science)\nF10: Kerem Erdem (faculty, Computer Science)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C10"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C10\", \"type\": \"course\", \"name\": \"Computer Vision\", \"code\": \"COM382\", \"credits\": 6, \"semester\": \"Spring\", \"instructor_id\": \"F05\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Computer Vision"
+        },
+        {
+          "role": "tool",
+          "content": "C10: Computer Vision (course)\nF01: James Jensen (faculty, Computer Science)\nF10: Kerem Erdem (faculty, Computer Science)\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Computer Vision"
+        }
+      ]
+    },
+    {
+      "question": "What is the budget of the Medical Image Analysis project?",
+      "reference": "460000",
+      "answer": "Associate Professor",
+      "correct": false,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Medical Image Analysis"
+        },
+        {
+          "role": "tool",
+          "content": "P05: Medical Image Analysis (project)\nC09: Circuit Analysis (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: P05"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"P05\", \"type\": \"project\", \"name\": \"Medical Image Analysis\", \"leader_id\": \"F03\", \"budget\": 460000, \"start_year\": 2024}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F03"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F03\", \"type\": \"faculty\", \"name\": \"David Hughes\", \"department\": \"Mathematics\", \"title\": \"Associate Professor\", \"office\": \"Building B-185\", \"email\": \"hughes@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F03"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F03\", \"type\": \"faculty\", \"name\": \"David Hughes\", \"department\": \"Mathematics\", \"title\": \"Associate Professor\", \"office\": \"Building B-185\", \"email\": \"hughes@university.edu\"}\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Associate Professor"
+        }
+      ]
+    },
+    {
+      "question": "Who leads the Medical Image Analysis project?",
+      "reference": "David Hughes",
+      "answer": "Associate Professor David Hughes, Mathematics",
+      "correct": true,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Medical Image Analysis"
+        },
+        {
+          "role": "tool",
+          "content": "P05: Medical Image Analysis (project)\nC09: Circuit Analysis (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: P05"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"P05\", \"type\": \"project\", \"name\": \"Medical Image Analysis\", \"leader_id\": \"F03\", \"budget\": 460000, \"start_year\": 2024}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F03"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F03\", \"type\": \"faculty\", \"name\": \"David Hughes\", \"department\": \"Mathematics\", \"title\": \"Associate Professor\", \"office\": \"Building B-185\", \"email\": \"hughes@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F03"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F03\", \"type\": \"faculty\", \"name\": \"David Hughes\", \"department\": \"Mathematics\", \"title\": \"Associate Professor\", \"office\": \"Building B-185\", \"email\": \"hughes@university.edu\"}\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Associate Professor David Hughes, Mathematics"
+        }
+      ]
+    },
+    {
+      "question": "Which department does the instructor of Quantum Mechanics belong to?",
+      "reference": "Physics",
+      "answer": null,
+      "correct": false,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Quantum Mechanics"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Quantum Mechanics"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C03"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C03\", \"type\": \"course\", \"name\": \"Quantum Mechanics\", \"code\": \"QUA166\", \"credits\": 3, \"semester\": \"Fall\", \"instructor_id\": \"F09\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Quantum Mechanics"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Quantum Mechanics"
+        }
+      ]
+    },
+    {
+      "question": "Which department does Mehmet Fischer belong to?",
+      "reference": "Physics",
+      "answer": "Physics",
+      "correct": true,
+      "tool_calls": 2,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Mehmet Fischer"
+        },
+        {
+          "role": "tool",
+          "content": "F09: Mehmet Fischer (faculty, Physics)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F09"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F09\", \"type\": \"faculty\", \"name\": \"Mehmet Fischer\", \"department\": \"Physics\", \"title\": \"Associate Professor\", \"office\": \"Building E-275\", \"email\": \"fischer@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Physics"
+        }
+      ]
+    },
+    {
+      "question": "In which semester is Machine Learning offered?",
+      "reference": "Spring",
+      "answer": null,
+      "correct": false,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Machine Learning"
+        },
+        {
+          "role": "tool",
+          "content": "C01: Machine Learning (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C01"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C01\", \"type\": \"course\", \"name\": \"Machine Learning\", \"code\": \"MAC282\", \"credits\": 6, \"semester\": \"Spring\", \"instructor_id\": \"F09\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F09"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F09\", \"type\": \"faculty\", \"name\": \"Mehmet Fischer\", \"department\": \"Physics\", \"title\": \"Associate Professor\", \"office\": \"Building E-275\", \"email\": \"fischer@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F09"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F09\", \"type\": \"faculty\", \"name\": \"Mehmet Fischer\", \"department\": \"Physics\", \"title\": \"Associate Professor\", \"office\": \"Building E-275\", \"email\": \"fischer@university.edu\"}\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "Mehmet Fischer"
+        }
+      ]
+    },
+    {
+      "question": "In which semester is Linear Algebra offered?",
+      "reference": "Fall",
+      "answer": "Building B-185",
+      "correct": false,
+      "tool_calls": 4,
+      "invalid_calls": 1,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Linear Algebra"
+        },
+        {
+          "role": "tool",
+          "content": "C02: Linear Algebra (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C02"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C02\", \"type\": \"course\", \"name\": \"Linear Algebra\", \"code\": \"LIN391\", \"credits\": 3, \"semester\": \"Fall\", \"instructor_id\": \"F03\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F03"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F03\", \"type\": \"faculty\", \"name\": \"David Hughes\", \"department\": \"Mathematics\", \"title\": \"Associate Professor\", \"office\": \"Building B-185\", \"email\": \"hughes@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: B-185"
+        },
+        {
+          "role": "tool",
+          "content": "Error: no record with id 'B-185'.\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Building B-185"
+        }
+      ]
+    },
+    {
+      "question": "Who leads the Quantum Error Correction project?",
+      "reference": "Grace Anderson",
+      "answer": "Grace Anderson",
+      "correct": true,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Quantum Error Correction"
+        },
+        {
+          "role": "tool",
+          "content": "P04: Quantum Error Correction (project)\nC03: Quantum Mechanics (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: P04"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"P04\", \"type\": \"project\", \"name\": \"Quantum Error Correction\", \"leader_id\": \"F06\", \"budget\": 170000, \"start_year\": 2019}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F06"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F06\", \"type\": \"faculty\", \"name\": \"Grace Anderson\", \"department\": \"Physics\", \"title\": \"Assistant Professor\", \"office\": \"Building D-106\", \"email\": \"anderson@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F06"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F06\", \"type\": \"faculty\", \"name\": \"Grace Anderson\", \"department\": \"Physics\", \"title\": \"Assistant Professor\", \"office\": \"Building D-106\", \"email\": \"anderson@university.edu\"}\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Grace Anderson"
+        }
+      ]
+    },
+    {
+      "question": "How many credits is the Signal Processing course?",
+      "reference": "3",
+      "answer": "3",
+      "correct": true,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Signal Processing"
+        },
+        {
+          "role": "tool",
+          "content": "C05: Signal Processing (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C05"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C05\", \"type\": \"course\", \"name\": \"Signal Processing\", \"code\": \"SIG403\", \"credits\": 3, \"semester\": \"Fall\", \"instructor_id\": \"F06\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F06"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F06\", \"type\": \"faculty\", \"name\": \"Grace Anderson\", \"department\": \"Physics\", \"title\": \"Assistant Professor\", \"office\": \"Building D-106\", \"email\": \"anderson@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F06"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F06\", \"type\": \"faculty\", \"name\": \"Grace Anderson\", \"department\": \"Physics\", \"title\": \"Assistant Professor\", \"office\": \"Building D-106\", \"email\": \"anderson@university.edu\"}\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: 3"
+        }
+      ]
+    },
+    {
+      "question": "Which department does David Hughes belong to?",
+      "reference": "Mathematics",
+      "answer": "Mathematics",
+      "correct": true,
+      "tool_calls": 2,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: David Hughes"
+        },
+        {
+          "role": "tool",
+          "content": "F03: David Hughes (faculty, Mathematics)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F03"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F03\", \"type\": \"faculty\", \"name\": \"David Hughes\", \"department\": \"Mathematics\", \"title\": \"Associate Professor\", \"office\": \"Building B-185\", \"email\": \"hughes@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Mathematics"
+        }
+      ]
+    },
+    {
+      "question": "Who teaches Circuit Analysis?",
+      "reference": "Kerem Erdem",
+      "answer": null,
+      "correct": false,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Circuit Analysis"
+        },
+        {
+          "role": "tool",
+          "content": "C09: Circuit Analysis (course)\nP05: Medical Image Analysis (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Medical Image Analysis"
+        },
+        {
+          "role": "tool",
+          "content": "P05: Medical Image Analysis (project)\nC09: Circuit Analysis (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Circuit Analysis"
+        },
+        {
+          "role": "tool",
+          "content": "C09: Circuit Analysis (course)\nP05: Medical Image Analysis (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Medical Image Analysis"
+        },
+        {
+          "role": "tool",
+          "content": "P05: Medical Image Analysis (project)\nC09: Circuit Analysis (course)\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Medical Image Analysis"
+        }
+      ]
+    },
+    {
+      "question": "Where is the office of Mehmet Fischer?",
+      "reference": "Building E-275",
+      "answer": "Building E-275",
+      "correct": true,
+      "tool_calls": 2,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Mehmet Fischer"
+        },
+        {
+          "role": "tool",
+          "content": "F09: Mehmet Fischer (faculty, Physics)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F09"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F09\", \"type\": \"faculty\", \"name\": \"Mehmet Fischer\", \"department\": \"Physics\", \"title\": \"Associate Professor\", \"office\": \"Building E-275\", \"email\": \"fischer@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Building E-275"
+        }
+      ]
+    },
+    {
+      "question": "Where is the office of the instructor of Data Structures?",
+      "reference": "Building E-275",
+      "answer": null,
+      "correct": false,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Data Structures"
+        },
+        {
+          "role": "tool",
+          "content": "C04: Data Structures (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C04"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C04\", \"type\": \"course\", \"name\": \"Data Structures\", \"code\": \"DAT462\", \"credits\": 4, \"semester\": \"Fall\", \"instructor_id\": \"F09\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Data Structures"
+        },
+        {
+          "role": "tool",
+          "content": "C04: Data Structures (course)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C04"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C04\", \"type\": \"course\", \"name\": \"Data Structures\", \"code\": \"DAT462\", \"credits\": 4, \"semester\": \"Fall\", \"instructor_id\": \"F09\"}\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "C04: Data Structures (course)"
+        }
+      ]
+    },
+    {
+      "question": "In which semester is Quantum Mechanics offered?",
+      "reference": "Fall",
+      "answer": "Physics",
+      "correct": false,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Quantum Mechanics"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C03"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C03\", \"type\": \"course\", \"name\": \"Quantum Mechanics\", \"code\": \"QUA166\", \"credits\": 3, \"semester\": \"Fall\", \"instructor_id\": \"F09\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: P04"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"P04\", \"type\": \"project\", \"name\": \"Quantum Error Correction\", \"leader_id\": \"F06\", \"budget\": 170000, \"start_year\": 2019}"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F06"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F06\", \"type\": \"faculty\", \"name\": \"Grace Anderson\", \"department\": \"Physics\", \"title\": \"Assistant Professor\", \"office\": \"Building D-106\", \"email\": \"anderson@university.edu\"}\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Physics"
+        }
+      ]
+    },
+    {
+      "question": "Who teaches Quantum Mechanics?",
+      "reference": "Mehmet Fischer",
+      "answer": "Quantum Mechanics",
+      "correct": false,
+      "tool_calls": 4,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Quantum Mechanics"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Quantum Mechanics"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: C03"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"C03\", \"type\": \"course\", \"name\": \"Quantum Mechanics\", \"code\": \"QUA166\", \"credits\": 3, \"semester\": \"Fall\", \"instructor_id\": \"F09\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "SEARCH: Quantum Mechanics"
+        },
+        {
+          "role": "tool",
+          "content": "C03: Quantum Mechanics (course)\nP04: Quantum Error Correction (project)\nYou have used all tool calls. Reply with ANSWER now."
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Quantum Mechanics"
+        }
+      ]
+    },
+    {
+      "question": "What is the email address of Grace Anderson?",
+      "reference": "anderson@university.edu",
+      "answer": "anderson@university.edu",
+      "correct": true,
+      "tool_calls": 2,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Grace Anderson"
+        },
+        {
+          "role": "tool",
+          "content": "F06: Grace Anderson (faculty, Physics)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F06"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F06\", \"type\": \"faculty\", \"name\": \"Grace Anderson\", \"department\": \"Physics\", \"title\": \"Assistant Professor\", \"office\": \"Building D-106\", \"email\": \"anderson@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: anderson@university.edu"
+        }
+      ]
+    },
+    {
+      "question": "What is the academic title of Mehmet Fischer?",
+      "reference": "Associate Professor",
+      "answer": "Associate Professor",
+      "correct": true,
+      "tool_calls": 2,
+      "invalid_calls": 0,
+      "transcript": [
+        {
+          "role": "assistant",
+          "content": "SEARCH: Mehmet Fischer"
+        },
+        {
+          "role": "tool",
+          "content": "F09: Mehmet Fischer (faculty, Physics)"
+        },
+        {
+          "role": "assistant",
+          "content": "READ: F09"
+        },
+        {
+          "role": "tool",
+          "content": "{\"id\": \"F09\", \"type\": \"faculty\", \"name\": \"Mehmet Fischer\", \"department\": \"Physics\", \"title\": \"Associate Professor\", \"office\": \"Building E-275\", \"email\": \"fischer@university.edu\"}"
+        },
+        {
+          "role": "assistant",
+          "content": "ANSWER: Associate Professor"
+        }
+      ]
+    }
+  ]
+}
