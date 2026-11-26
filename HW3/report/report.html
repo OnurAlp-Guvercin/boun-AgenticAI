@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>DSAI 582 Assignment 3 Report</title>
 <style>
-  @page { size: A4; margin: 15mm 16mm; }
+  @page { size: A4; margin: 12mm 15mm; }
   body { font-family: Helvetica, Arial, sans-serif; font-size: 10pt; line-height: 1.4; color: #0b0b0b; margin: 0; }
   h1 { font-size: 15pt; margin: 0 0 2px; }
   .byline { color: #52514e; margin-bottom: 10px; }
@@ -32,7 +32,8 @@
 <body>
 
 <h1>DSAI 582 Assignment 3: Reinforcement Learning for a Tool-Using Agent</h1>
-<div class="byline">Onur Alp Güvercin · 2024700147 · Qwen2.5-0.5B-Instruct + LoRA, trained with REINFORCE (PyTorch, Transformers, PEFT)</div>
+<div class="byline">Onur Alp Güvercin · 2024700147 · Qwen2.5-0.5B-Instruct + LoRA, trained with REINFORCE (PyTorch, Transformers, PEFT)<br>
+Code and results: <a href="https://github.com/OnurAlp-Guvercin/boun-AgenticAI/tree/main/HW3">github.com/OnurAlp-Guvercin/boun-AgenticAI/tree/main/HW3</a></div>
 
 <p><b>Summary.</b> The agent answers questions about a fictional university with two database tools. With a simple one-line tool format written in the system prompt, test accuracy rises from <b>55% (11/20)</b> before training to <b>90% (18/20)</b> after 100 REINFORCE updates, while tool calls per question drop from 3.30 to 2.60 and invalid requests from 1.5% to 0%. Five prompt setups were compared; the tool format had a larger effect than RL itself.</p>
 
